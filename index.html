@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>G-Tracker | Smart Garbage Tagging</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- EXIF library (to read GPS data from images) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">🌎 <span>G-Tracker</span></div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#upload">Upload</a>
+      <button id="viewHistoryBtn" class="view-history-btn">View History</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Track. Clean. Sustain.</h1>
+      <p>Join the mission to make our planet cleaner by tagging and tracking waste locations effortlessly.</p>
+    </div>
+  </section>
+
+  <!-- Upload Container -->
+  <main class="container" id="upload">
+    <h2>Upload a Garbage Picture</h2>
+    <p class="subtitle">G-Tracker automatically detects GPS data or uses your device’s location.</p>
+
+    <div class="upload-area" id="uploadArea">
+      <div class="upload-icon">📸</div>
+      <div class="upload-text">Click or drag an image here</div>
+      <div class="upload-subtext">Supported formats: JPG, PNG (max 5MB)</div>
+    </div>
+
+    <input type="file" id="imageInput" accept="image/*" />
+    <div id="statusMessage"></div>
+
+    <div class="preview-section" id="previewSection">
+      <img id="imagePreview" class="image-preview" alt="Uploaded image preview" />
+
+      <div class="info-card">
+        <div class="info-title">📍 Location Information</div>
+        <div class="info-content" id="locationInfo"></div>
+        <div id="mapLinkContainer"></div>
+      </div>
+
+      <div class="button-group">
+        <button class="reset-btn" id="resetBtn">Cancel</button>
+        <button class="save-btn" id="saveBtn">💾 Save Record</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- History Modal -->
+  <div class="modal" id="historyModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>📜 Uploaded Garbage Records</h2>
+        <button class="close-btn" id="closeModalBtn">×</button>
+      </div>
+      <div id="historyContainer"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>♻️ Powered by <strong>G-Tracker</strong> | Together for a Greener Future</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
